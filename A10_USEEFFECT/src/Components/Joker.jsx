@@ -2,17 +2,22 @@ import {useState, useEffect} from "react";
 
 function Joker(){
     const URL = "https://official-joke-api.appspot.com/random_joke";
+    const [joke, setJoke] = useState({ 
+        setup: "",
+        punchline: "" 
+    });
     
     const getJoke = async() => {
         const responce = await fetch(URL);
         const jsonResponce = await responce.json();
         
-        // setJoke({setup: jsonResponce.setup, punchline: jsonResponce.punchline});
+        setJoke({setup: jsonResponce.setup, punchline: jsonResponce.punchline});
         console.log(jsonResponce);
-        return jsonResponce;
     }
 
-    let [joke, setJoke] = useState({getJoke});
+    useEffect(() => {
+        getJoke();
+    }, []);
 
     return(
         <>
