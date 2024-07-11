@@ -24,7 +24,7 @@ function Joker(){
             <button onClick={getJoke}>Get Joke</button>
             <h3>Joke : </h3> 
             <h3>{joke.setup}</h3>
-            <h3>{joke.punchline}</h3>
+            <h3>{joke.punchline}</h3>            
         </>
     )
 }
