@@ -4,13 +4,13 @@ import SearchBox from "./SearchBox"
 
 function Weather(){
     let [weatherData, setWeatherData] = useState({
-        city: "Mumbai",
-        feelslike: 36.63,
-        humidity: 69,
-        maxTemp: 30.74,
-        minTemp: 30.74,
-        temp: 30.74,
-        weather: "scattered clouds"
+        city: "City",
+        feelslike: 0,
+        humidity: 0,
+        maxTemp: 0,
+        minTemp: 0,
+        temp: 0,
+        weather: ""
     })
 
     let updateInfo = (newInfo) => {
