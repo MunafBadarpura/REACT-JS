@@ -1,0 +1,83 @@
+.contact{
+    max-width: 80vw;
+    margin: 0 auto;
+    display: flex;
+}
+
+.right{
+    width: 50%;
+}
+
+.black-btns{
+    display: flex;
+    gap: 20px;
+}
+
+button{
+    all: unset;
+    padding: 6px 16px;
+    background: black;
+    height: 32px;
+    color: white;
+    font-weight: 600;
+    width: 220px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.white-btns button{
+    margin-top: 15px;
+    width: 80%;
+    background: transparent;
+    border: 1px solid black;
+    color: black;
+}
+
+.form-fill{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control{
+    margin-top: 23px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    position: relative;
+}
+
+.form-control input{
+    height: 40px;
+    padding: 0px 8px;
+    font-size: 15px;
+}
+
+.form-control label{
+    font-size: 14px;
+    font-weight: 600;
+    position: absolute;
+    top: -12px;
+    left: 10px;
+    background-color: white;
+    padding: 0 10px;
+}
+
+textarea{
+    padding: 0px 8px;
+    padding-top: 12px;
+    font-size: 20px;
+}
+
+.submit{
+    margin-right: 120px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: end;
+}
+
+.contact-img img{
+    margin-top: -60px;
+    height: 480px;
+    width: 570px;
+}

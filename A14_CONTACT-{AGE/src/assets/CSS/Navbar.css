@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav{
+    height: 72px;
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+ul{
+    display: flex;
+    gap: 40px;
+    align-items: center; 
+}
+
+ul li{
+    cursor: pointer;
+    list-style: none;
+    font-weight: 500;
+}
