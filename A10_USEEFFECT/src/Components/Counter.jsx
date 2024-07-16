@@ -15,9 +15,20 @@ function Counter(){
         })
     }
 
-    //useEffect(function, dependencies) , if we use "[]" (empty array) so it only execute 1time
+    // useEffect(function, dependencies) , if we use "[]" (empty array) so it only execute 1time
+    // ===> this run first time and after every render
+    // useEffect(function print(){
+    //     console.log("This is use-effect");
+    // })
+
+    // ===> this run only first time 
+    // useEffect(function print(){
+    //     console.log("This is use-effect");
+    // },[])
+
+    // ===> this run first time and after counter1 rendring
     useEffect(function print(){
-        console.log("This is side-effect");
+        console.log("This is use-effect");
     }, [counter1])
 
     return(
