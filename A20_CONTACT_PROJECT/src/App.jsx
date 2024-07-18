@@ -54,7 +54,7 @@ function App() {
       <div>
         {
           contacts.map((contact) => (
-              <ContactCard contact={contact} key={contact.id}/>
+              <ContactCard contact={contact} key={contact.id} isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
           ))
         }
       </div>

@@ -4,7 +4,7 @@ import { Field, Form, Formik } from "formik";
 import { addDoc, collection} from "firebase/firestore"
 import { db } from "../config/firebase"
 
-function AddandUpdate({ isOpen, onClose }) {
+function AddandUpdate({ isOpen, onClose, isUpdate }) {
 
   const addContact = async(contact) => {
     try{
@@ -42,7 +42,7 @@ function AddandUpdate({ isOpen, onClose }) {
 
               <div className="flex justify-end pt-4">
                 <button type="submit" className="h-[31px] w-[120px] bg-dark-yellow">
-                  Add Contact
+                  {isUpdate ? "Update " : "Add "} Contact
                 </button>
               </div>
             </Form>
