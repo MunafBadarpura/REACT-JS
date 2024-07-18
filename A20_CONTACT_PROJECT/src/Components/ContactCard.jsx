@@ -8,7 +8,7 @@ const ContactCard = ({contact}) => {
 
   const deleteContact = async(id) => {
     try{
-      await deleteDoc(doc(db, "contact", id))
+      await deleteDoc(doc(db, "contacts", id))
     }
     catch(err){
       console.log(err);
