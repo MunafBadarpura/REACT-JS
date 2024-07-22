@@ -1,8 +1,43 @@
 import { useState } from 'react'
 import './App.css'
 import Navbar from './Components/Navbar'
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
+  
+  const [todo, setTodo] = useState("");
+  const [todos, setTodos] = useState([]);
+
+  const handleAdd = () => {
+   
+    if(todo.length > 1) {
+      setTodos([...todos, {id:uuidv4(), todo, isCompleted: false}]);
+      setTodo("");
+    }
+  }
+
+  const handleEdit = () => {
+
+  }
+
+  const handleDelete = (id) => {
+    const copy = todos.filter(item => item.id != id);
+    setTodos(copy);
+  }
+
+  const handleChanges = (event) => {
+    setTodo(event.target.value);  
+  }
+
+  const handleCheckbox = (id) => {
+    let index = todos.findIndex(item => {
+      return item.id === id;
+    })
+    
+    let newTodos = [...todos];
+    newTodos[index].isCompleted = !newTodos[index].isCompleted;
+    setTodos(newTodos);
+  }
 
   return (
     <>
@@ -10,26 +45,37 @@ function App() {
 
       <div className='container rounded-xl bg-violet-100 my-5 p-5 mx-auto min-h-[80vh]'>
 
-          <div className="add-todo my-5">
+          <div className="add-todo my-5 w-[100%]">
               <h2 className='text-lg font-bold'>Add a todo</h2>
-              <input className='w-1/2' type="text"/>
-              <button className='bg-violet-700 hover:bg-violet-900  text-white p-3 py-1 mx-6 rounded-lg'>Add</button>
+              <div className='flex justify-between w-[80%]'>
+              <input onChange={handleChanges} value={todo} className='w-[70%] p-2' type="text"/>
+              <button onClick={handleAdd} className='bg-violet-700 hover:bg-violet-900  text-white p-3 py-1 mx-6 rounded-lg'>Add</button>
+              </div>
           </div>
 
           <h2 className='text-lg font-bold'>Your todos</h2>
   
-          <div className="todos">
+          <div className="todos ">
+            {todos.length === 0 && <div className='my-5 opacity-0.4'>No Todos</div> }
+            {todos.map(item => {
 
-            <div className="todo flex">
-              <div className="todo-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
+              return <div key={item.id} className="todo flex justify-between w-[80%]">
+              <div className='flex gap-5'>
+                <input onChange={() => handleCheckbox(item.id)} type="checkbox" />
+                <div className={item.isCompleted? "line-through" : ""}>
+                  <div className='my-2'>
+                    {item.todo}
+                  </div>
+              </div>
+
               </div>
               <div className="buttons">
-                  <button className='bg-violet-700 hover:bg-violet-900  text-white p-3 py-1 mx-2 rounded-lg'>Edit</button>
-                  <button className='bg-violet-700 hover:bg-violet-900  text-white p-3 py-1 mx-2 rounded-lg'>Delete</button>
+                  <button onClick={handleEdit} className='bg-violet-700 hover:bg-violet-900  text-white p-3 py-1 mx-2 rounded-lg'>Edit</button>
+                  <button onClick={() => handleDelete(item.id)} className='bg-violet-700 hover:bg-violet-900  text-white p-3 py-1 mx-2 rounded-lg'>Delete</button>
               </div>
             </div>
 
+            })}
           </div>
 
       </div>
