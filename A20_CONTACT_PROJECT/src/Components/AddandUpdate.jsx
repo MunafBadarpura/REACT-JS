@@ -1,10 +1,10 @@
 import React from "react";
 import Model from "./Model";
 import { Field, Form, Formik } from "formik";
-import { addDoc, collection} from "firebase/firestore"
+import { addDoc, collection, doc, updateDoc} from "firebase/firestore"
 import { db } from "../config/firebase"
 
-function AddandUpdate({ isOpen, onClose, isUpdate }) {
+function AddandUpdate({ isOpen, onClose, isUpdate , contact}) {
 
   const addContact = async(contact) => {
     try{
@@ -15,19 +15,33 @@ function AddandUpdate({ isOpen, onClose, isUpdate }) {
       console.log(err);
     }
   }
+  const updateContact = async(contact, id) => {
+    try{
+      const contactRef = doc(db, "contacts", id);
+      await updateDoc(contactRef, contact);
+    }
+    catch(err){
+      console.log(err);
+    }
+  }
 
   return (
     <div>
-      {isOpen == true && (
+
         <Model isopen={isOpen} onClose={onClose}>
           <Formik
-            initialValues={{
+            initialValues={isUpdate
+              ? {
+                name: contact.name,
+                email: contact.email,
+              }
+              : {
               name: "",
               email: "",
             }}
             onSubmit={(values) => {
-              console.log(values);
-              addContact(values);
+              isUpdate ? updateContact(values, contact.id) : addContact(values);
+              
             }}
           >
             <Form>
@@ -48,7 +62,7 @@ function AddandUpdate({ isOpen, onClose, isUpdate }) {
             </Form>
           </Formik>
         </Model>
-      )}
+
     </div>
   );
 }

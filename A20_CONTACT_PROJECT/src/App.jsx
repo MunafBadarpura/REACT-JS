@@ -9,7 +9,7 @@ import Model from "./Components/Model";
 import AddandUpdate from "./Components/AddandUpdate";
 
 function App() {
-
+  
   const [contacts, setContacts] = useState([]);
   const [isOpen, setisOpen] = useState(false);
 
@@ -54,13 +54,13 @@ function App() {
       <div>
         {
           contacts.map((contact) => (
-              <ContactCard contact={contact} key={contact.id} isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
+              <ContactCard contact={contacts} key={contact.id} isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
           ))
         }
       </div>
     </div>
       
-      <AddandUpdate isOpen={isOpen} onClose={onClose}/>
+      <AddandUpdate isOpen={isOpen} onClose={onClose} contact={contacts}/>
     
     </>
   );

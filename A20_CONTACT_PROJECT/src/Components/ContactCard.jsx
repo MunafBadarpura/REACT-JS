@@ -31,11 +31,12 @@ const ContactCard = ({contact, isOpen, onClose, onOpen}) => {
           </div>
         </div>
         <div className="flex items-center gap-2">
+          {/* <RiEditCircleLine onClick={onOpen} className="cursor-pointer text-[35px]" /> */}
           <RiEditCircleLine onClick={onOpen} className="cursor-pointer text-[35px]" />
           <IoMdTrash onClick={() => deleteContact(contact.id)} className="cursor-pointer text-[35px]" />
         </div>
       </div>
-      <AddandUpdate isUpdate isOpen={isOpen} onClose={onClose}/>
+      <AddandUpdate isUpdate isOpen={isOpen} onClose={onClose} contact={contact}/>
     </> 
   );
 };
