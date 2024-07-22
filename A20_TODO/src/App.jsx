@@ -48,7 +48,7 @@ function App() {
     <>
       <Navbar/>
 
-      <div className='container rounded-xl bg-violet-100 my-5 p-5 mx-auto min-h-[80vh]'>
+      <div className='container rounded-xl bg-violet-100 my-5 p-5 mx-auto min-h-[80vh] max-w-[95%]'>
 
           <div className="add-todo my-5 w-[100%]">
               <h2 className='text-lg font-bold'>Add a todo</h2>
