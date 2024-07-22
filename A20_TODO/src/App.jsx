@@ -16,8 +16,13 @@ function App() {
     }
   }
 
-  const handleEdit = () => {
+  const handleEdit = (id) => {
+    const copy = todos.find(item => id === item.id);
+    setTodo(copy.todo);
 
+    // filter todos
+    const copyDelete = todos.filter(item => item.id != id);
+    setTodos(copyDelete);
   }
 
   const handleDelete = (id) => {
@@ -70,7 +75,7 @@ function App() {
 
               </div>
               <div className="buttons">
-                  <button onClick={handleEdit} className='bg-violet-700 hover:bg-violet-900  text-white p-3 py-1 mx-2 rounded-lg'>Edit</button>
+                  <button onClick={() => handleEdit(item.id)} className='bg-violet-700 hover:bg-violet-900  text-white p-3 py-1 mx-2 rounded-lg'>Edit</button>
                   <button onClick={() => handleDelete(item.id)} className='bg-violet-700 hover:bg-violet-900  text-white p-3 py-1 mx-2 rounded-lg'>Delete</button>
               </div>
             </div>
