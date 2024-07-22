@@ -51,20 +51,20 @@ function App() {
       <div className='container rounded-xl bg-violet-100 my-5 p-5 mx-auto min-h-[80vh] max-w-[95%]'>
 
           <div className="add-todo my-5 w-[100%]">
-              <h2 className='text-lg font-bold'>Add a todo</h2>
-              <div className='flex justify-between w-[80%]'>
-              <input onChange={handleChanges} value={todo} className='w-[70%] p-2' type="text"/>
-              <button onClick={handleAdd} className='bg-violet-700 hover:bg-violet-900  text-white p-3 py-1 mx-6 rounded-lg'>Add</button>
+                <h2 className='text-lg font-bold my-2'>Add a todo</h2>
+                <div className='flex w-[80%]'>
+                <input onChange={handleChanges} value={todo} className='w-[70%] p-2 rounded-md border border-black' type="text"/>
+                <button onClick={handleAdd} className='bg-violet-700 hover:bg-violet-900  text-white p-3 py-1 mx-6 rounded-lg'>Add</button>
               </div>
           </div>
 
           <h2 className='text-lg font-bold'>Your todos</h2>
   
-          <div className="todos ">
+          <div className="todos w-[100%]">
             {todos.length === 0 && <div className='my-5 opacity-0.4'>No Todos</div> }
             {todos.map(item => {
 
-              return <div key={item.id} className="todo flex justify-between w-[80%]">
+              return <div key={item.id} className="todo flex justify-between">
               <div className='flex gap-5'>
                 <input onChange={() => handleCheckbox(item.id)} type="checkbox" />
                 <div className={item.isCompleted? "line-through" : ""}>
