@@ -8,8 +8,10 @@ let likeStyle = {
 function LikeButton(){
     let [isLiked, setIsLiked] = useState(false);
 
-    function toggleLike(){
-        setIsLiked(!isLiked) // if false it makes true and if true it makes false
+    function toggleLike(){         
+        setIsLiked((cuurentVal) => {
+            return !cuurentVal;   // if false it makes true and if true it makes false
+        })
     }
 
     return(

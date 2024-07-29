@@ -1,7 +1,7 @@
 import {useState} from 'react'
 
 function LudoBoard(){
-    let [moves, setMoves] = useState( {blue:0, yellow:0, green:0, red:0} );
+    let [moves, setMoves] = useState( { blue:0, yellow:0, green:0, red:0} );
     let [arr, setArr] = useState([0]);
 
     function blueClick(){
