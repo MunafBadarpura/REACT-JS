@@ -3,7 +3,10 @@ import { useState } from "react";
 function Form(){
     let [fullName, setFullName] = useState("");
     function changeHandle(event){
-        setFullName(event.target.value);
+        // setFullName(event.target.value);
+        setFullName((preName) => {
+            return event.target.value;
+        })
         console.log(fullName);
     }
 
