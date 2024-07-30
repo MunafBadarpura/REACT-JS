@@ -6,12 +6,10 @@
 // 5. useSetRecoilState
 // 6. selector
 
-import React, { useState, lazy, Suspense } from 'react'
-import { atom, RecoilRoot, useRecoilState, useRecoilValue } from 'recoil'
-import { countAtom } from './store/atoms/count'
-
+import React from 'react'
+import { RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
+import { countAtom, evenSelector } from './store/atoms/count'
 function App() {
-  
   return (
     <>
       <RecoilRoot>
@@ -23,10 +21,12 @@ function App() {
 
 
 function Count(){
+  console.log("Count");
   return (
     <div>
       <CountRender/>
       <Button/>
+      <Even/>
     </div>
   )
 }
@@ -41,11 +41,22 @@ function CountRender(){
 }
 
 function Button(){
-  const [count, setCount] = useRecoilState(countAtom);
+  const setCount =  useSetRecoilState(countAtom)
+  console.log("button");
   return(
     <div>
-      <button onClick={() => setCount((preCount) => preCount+1 )}>Increase</button>
-      <button onClick={() => setCount((preCount) => preCount-1 )}>Decrease</button>
+      <button onClick={() => setCount(preCount => preCount+1 )}>Increase</button>
+      <button onClick={() => setCount(preCount => preCount-1 )}>Decrease</button>
+    </div>
+  )
+}
+
+function Even(){
+  const isEven = useRecoilValue(evenSelector);
+  console.log(isEven);
+  return(
+    <div>
+      {isEven ? "Even" : null}
     </div>
   )
 }
