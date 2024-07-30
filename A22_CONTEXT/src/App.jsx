@@ -4,8 +4,8 @@
 
 // it dosent fix re-rendering only fix prop-drilling
 
-import React, { useState, lazy, Suspense } from 'react'
-import { CountContext } from './assets/context';
+import React, { useState } from 'react'
+import { CountContext } from './context';
 import { useContext } from 'react';
 
 function App() {

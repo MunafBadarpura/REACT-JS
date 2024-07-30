@@ -7,14 +7,16 @@
 // 6. selector
 
 import React, { useState, lazy, Suspense } from 'react'
-import { atom, useRecoilState, useRecoilValue } from 'recoil'
+import { atom, RecoilRoot, useRecoilState, useRecoilValue } from 'recoil'
 import { countAtom } from './store/atoms/count'
 
 function App() {
   
   return (
     <>
-      <Count/>
+      <RecoilRoot>
+        <Count/>
+      </RecoilRoot> 
     </>
   )
 }
