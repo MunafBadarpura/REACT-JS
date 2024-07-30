@@ -1,3 +1,7 @@
+// why we use context
+// wrong ans : to make rendring more performance
+// right ans : to make syntax clear and avoid prop drilling 
+
 import React, { useState, lazy, Suspense } from 'react'
 import { CountContext } from './assets/context';
 import { useContext } from 'react';
