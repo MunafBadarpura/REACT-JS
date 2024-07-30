@@ -1,21 +1,20 @@
-// why we use context
-// wrong ans : to make rendring more performance
-// right ans : to make syntax clear and avoid prop drilling 
-
-// it dosent fix re-rendering only fix prop-drilling
+// THINGS THAT LEARN
+// 1. RecoilRoot
+// 2. atom
+// 3. useRecoilState
+// 4. useRecoilValue
+// 5. useSetRecoilState
+// 6. selector
 
 import React, { useState, lazy, Suspense } from 'react'
-import { CountContext } from './assets/context';
-import { useContext } from 'react';
+import { atom, useRecoilState, useRecoilValue } from 'recoil'
+import { countAtom } from './store/atoms/count'
 
 function App() {
-  const [count, setCount] = useState(0)
   
   return (
     <>
-      <CountContext.Provider value={{count, setCount}}>
       <Count/>
-      </CountContext.Provider>
     </>
   )
 }
@@ -31,7 +30,7 @@ function Count(){
 }
 
 function CountRender(){
-  const {count} = useContext(CountContext)
+  const count = useRecoilValue(countAtom)
   return(
     <div>
       {count}
@@ -40,7 +39,7 @@ function CountRender(){
 }
 
 function Button(){
-  const { count, setCount } = useContext(CountContext);
+  const [count, setCount] = useRecoilState(countAtom);
   return(
     <div>
       <button onClick={() => setCount((preCount) => preCount+1 )}>Increase</button>
