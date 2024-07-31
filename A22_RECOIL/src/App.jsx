@@ -1,10 +1,10 @@
 // THINGS THAT LEARN
-// 1. RecoilRoot
-// 2. atom
-// 3. useRecoilState
-// 4. useRecoilValue
-// 5. useSetRecoilState
-// 6. selector
+// 1. RecoilRoot = this is for wrap component that use recoil
+// 2. atom = this is for creating atom in seprate file
+// 3. useRecoilState = this is for use both countAtom ant setCountAtom
+// 4. useRecoilValue  = this is for use only countAtom
+// 5. useSetRecoilState = this is for use only setCountAtom
+// 6. selector = 
 
 import React from 'react'
 import { RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
