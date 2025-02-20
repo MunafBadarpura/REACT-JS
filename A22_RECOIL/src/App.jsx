@@ -4,7 +4,7 @@
 // 3. useRecoilState = this is for use both countAtom ant setCountAtom
 // 4. useRecoilValue  = this is for use only countAtom
 // 5. useSetRecoilState = this is for use only setCountAtom
-// 6. selector = 
+// 6. selector = selector is smthing that derived from other atoms (like useMemo)
 
 import React from 'react'
 import { RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
